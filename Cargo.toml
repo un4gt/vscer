@@ -1,0 +1,25 @@
+[package]
+name = "vscer"
+version = "0.1.0"
+edition = "2021"
+repository = "https://github.com/un4gt/vscer"
+
+[dependencies]
+clap = { version = "4.5.27", features = ["derive", "std"] }
+indexmap = "2.7.1"
+indicatif = "0.17.11"
+inquire = "0.7.5"
+reqwest = { version = "0.12.12",default-features = false,features = ["json", "blocking", "default-tls"] }
+serde_json = "1.0.137"
+
+[profile.release]
+opt-level = 'z'
+strip = true
+panic = "abort"
+codegen-units = 1
+lto = true
+
+# The profile that 'dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"
