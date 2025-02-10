@@ -7,7 +7,22 @@ members = ["cargo:."]
 cargo-dist-version = "0.28.0"
 # CI backends to support
 ci = "github"
-# The installers to generate for each app
-installers = []
+installers = ["shell", "powershell"]
+# The archive format to use for windows builds (defaults .zip)
+windows-archive = ".zip"
+# The archive format to use for non-windows builds (defaults .tar.xz)
+unix-archive = ".tar.gz"
 # Target platforms to build apps for (Rust target-triple syntax)
-targets = ["aarch64-apple-darwin", "aarch64-unknown-linux-gnu", "x86_64-apple-darwin", "x86_64-unknown-linux-gnu", "x86_64-pc-windows-msvc"]
+targets = ["aarch64-apple-darwin", "x86_64-apple-darwin", "x86_64-unknown-linux-gnu", "x86_64-pc-windows-msvc"]
+# Whether to auto-include files like READMEs, LICENSEs, and CHANGELOGs (default true)
+auto-includes = false
+# Whether dist should create a Github Release or use an existing draft
+create-release = true
+# Which actions to run on pull requests
+pr-run-mode = "skip"
+# Whether CI should trigger releases with dispatches instead of tag pushes
+dispatch-releases = true
+# Which phase dist should use to create the GitHub release
+github-release = "announce"
+# Path that installers should place binaries in
+install-path = ["$XDG_BIN_HOME/", "$XDG_DATA_HOME/../bin", "~/.local/bin"]
