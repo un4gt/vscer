@@ -24,3 +24,6 @@ lto = true
 inherits = "release"
 lto = "thin"
 
+[[bin]]
+name = "vscer"
+path = "src/main.rs"
