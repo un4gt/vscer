@@ -162,7 +162,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             Some(file_source.to_string())
         }
         None => {
-            let versions: Vec<String> = ret.iter().map(|v| v.version.clone()).collect();
+            let versions: Vec<String> = ret.iter()
+                .take(cli.n_latest as usize)
+                .map(|v| v.version.clone()).collect();
             let version_ans = Select::new("Select version", versions).prompt()?;
             if let Some(ext) = ret.iter().find(|v| v.version == version_ans) {
                 Some(ext.file_source.to_string())
