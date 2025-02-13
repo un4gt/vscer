@@ -1,46 +1,35 @@
 # Vscer
 
-**Vscer** 是一个用 Rust 编写的命令行工具，用于查询 Visual Studio Marketplace 上的扩展信息并下载对应的 VSIX 扩展包。该工具提供了交互式选择功能，可以让你选择扩展的版本和目标平台，并通过加载动画提升用户体验。
+English | [简体中文](README_zh.md)
 
-## 功能
+**Vscer** is a command-line tool written in [Rust](https://www.rust-lang.org/) for downloading vscode extension.
 
-- **查询扩展信息**  
-  根据指定的扩展 ID，从 Visual Studio Marketplace 获取扩展详细信息（包括版本、目标平台、VSIX 文件地址等）。
+*[Can't download VSIX extensions from the web marketplace anymore ? : r/vscode](https://www.reddit.com/r/vscode/comments/1i6k7gf/cant_download_vsix_extensions_from_the_web/)*
 
-- **解析与分组**  
-  解析返回的 JSON 数据，将扩展版本按版本号和目标平台进行分组（使用有序的 [IndexMap](https://docs.rs/indexmap/latest/indexmap/) 保留插入顺序）。
+[![Demo](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FUWDHJKj24ls)](https://youtu.be/UWDHJKj24ls)
 
-- **交互式选择**  
-  使用 [inquire](https://crates.io/crates/inquire) 提供交互式命令行界面，让用户选择所需的版本以及目标平台。
-
-- **下载 VSIX 文件**  
-  下载所选版本的 VSIX 扩展包，并保存至用户指定的目录中。
-
-- **加载动画**  
-  使用 [indicatif](https://crates.io/crates/indicatif) 展示加载进度动画（spinner），改善用户体验。
-
-## 技术栈
-
+## Tech Stack
 - **Rust**  
-  稳定、高性能、跨平台的系统编程语言。
+  A stable, high-performance, cross-platform system programming language.
+- **Key Dependencies**
+    - [clap](https://crates.io/crates/clap): Command-line argument parsing.
+    - [reqwest](https://crates.io/crates/reqwest): A synchronous HTTP client for sending network requests.
+    - [serde_json](https://crates.io/crates/serde_json): Parsing JSON data.
+    - [indicatif](https://crates.io/crates/indicatif): Progress bars and loading animations.
+    - [inquire](https://crates.io/crates/inquire): Interactive command-line prompts.
+    - [indexmap](https://crates.io/crates/indexmap): An ordered Map data structure that maintains insertion order.
 
-- **主要依赖**
-    - [clap](https://crates.io/crates/clap)：命令行参数解析。
-    - [reqwest](https://crates.io/crates/reqwest)：同步 HTTP 客户端，用于发送网络请求。
-    - [serde_json](https://crates.io/crates/serde_json)：解析 JSON 数据。
-    - [indicatif](https://crates.io/crates/indicatif)：进度条和加载动画。
-    - [inquire](https://crates.io/crates/inquire)：交互式命令行提示。
-    - [indexmap](https://crates.io/crates/indexmap)：保持插入顺序的有序 Map 数据结构。
 
-## 安装
+## Download
 
-### 前提条件
+You can download from [Releases](https://github.com/un4gt/vscer/releases).
 
-- 安装 [Rust](https://rustup.rs)
+*Thanks for [dist](https://opensource.axo.dev/cargo-dist/book/introduction.html)*
 
-### 克隆与构建
+Or build it locally:
 
 ```bash
-git clone https://github.com/yourusername/vscer.git
+git clone https://github.com/un4gt/vscer.git
 cd vscer
 cargo build --release
+```
