@@ -32,3 +32,39 @@ cd vscer
 cargo build --release
 ```
 
+## 使用
+
+输入 `vscer --help` 获取帮助信息。
+
+```plaintext
+Usage: vscer.exe [OPTIONS] --ext-id <EXT_ID>
+
+Options:
+  -i, --ext-id <EXT_ID>
+          extension id, eg: `charliermarsh.ruff`
+  -n, --n-latest <N_LATEST>
+          number of latest versions to display, default is 10
+  -s, --spec-version <SPEC_VERSION>
+          specified version to download
+  -h, --help
+          Print help
+  -V, --version
+          Print version
+```
+
+### 示例
+
+默认情况下，将显示扩展的最新 10 个版本。
+
+
+- 列出扩展的最新 20 个版本：
+
+```bash
+vscer -i charliermarsh.ruff -n 20
+```
+
+- 下载指定版本的扩展：
+
+```bash
+vscer -i charliermarsh.ruff -s x.x.x
+```

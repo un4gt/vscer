@@ -33,3 +33,39 @@ git clone https://github.com/un4gt/vscer.git
 cd vscer
 cargo build --release
 ```
+
+## Usage
+
+Type `vscer --help` to get help information.
+
+```plaintext
+Usage: vscer.exe [OPTIONS] --ext-id <EXT_ID>
+
+Options:
+  -i, --ext-id <EXT_ID>
+          extension id, eg: `charliermarsh.ruff`
+  -n, --n-latest <N_LATEST>
+          number of latest versions to display, default is 10
+  -s, --spec-version <SPEC_VERSION>
+          specified version to download
+  -h, --help
+          Print help
+  -V, --version
+          Print version
+```
+
+### Examples
+
+By default, the latest 10 versions of the extension will be displayed.
+
+- List the latest 20 versions of the extension:
+
+```bash
+vscer -i charliermarsh.ruff -n 20
+```
+
+- Download the specified version of the extension:
+
+```bash
+vscer -i charliermarsh.ruff -s x.x.x
+```
